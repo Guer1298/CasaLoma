@@ -1,0 +1,54 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Habitacion {
+  id          Int        @id @default(autoincrement())
+  nombre      String
+  descripcion String?
+  precio      Int
+  imagen      String?
+  reservas    Reserva[]
+  createdAt   DateTime   @default(now())
+}
+
+model Cliente {
+  id         Int       @id @default(autoincrement())
+  nombre     String
+  email      String    @unique
+  telefono   String?
+  reservas   Reserva[]
+  createdAt  DateTime  @default(now())
+}
+
+model Reserva {
+  id           Int        @id @default(autoincrement())
+  clienteId    Int
+  habitacionId Int
+  fechaEntrada DateTime
+  fechaSalida  DateTime
+  estado       String     @default("pendiente")
+  monto        Int?
+  createdAt    DateTime   @default(now())
+
+  cliente      Cliente    @relation(fields: [clienteId], references: [id])
+  habitacion   Habitacion @relation(fields: [habitacionId], references: [id])
+}
+
+model Usuario {
+  id       Int     @id @default(autoincrement())
+  nombre   String
+  email    String  @unique
+  password String
+  rol      String  @default("admin")
+  activo   Boolean @default(true)
+}

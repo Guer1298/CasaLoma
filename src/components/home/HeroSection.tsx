@@ -27,7 +27,7 @@ export default function HeroSection() {
           Una experiencia boutique en el corazón de la Ciudad Blanca.
         </p>
         <a
-          href="/habitaciones"
+          href="/reservas"
           className="inline-block bg-white text-gray-900 px-6 py-3 rounded-md font-semibold text-sm shadow-md hover:bg-gray-100 transition"
           aria-label="Reservar habitación en Casa Loma"
         >

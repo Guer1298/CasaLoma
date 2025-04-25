@@ -4,6 +4,7 @@ import HabitacionesSlider from '@/components/home/HabitacionesSlider';
 import Experiencias from '@/components/home/ExperienciasHome';
 import Testimonios from '@/components/home/Testimonios';
 import Ubicacion from '@/components/home/Ubicacion';
+import PageReservas from './reservas/page';
 
 export default function Home() {
   return (
