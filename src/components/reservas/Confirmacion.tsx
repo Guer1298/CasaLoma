@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Confirmacion() {
     return (
       <div className="text-center py-20">
@@ -5,7 +7,9 @@ export default function Confirmacion() {
         <p className="text-gray-600 dark:text-gray-300 mb-6">
           Te hemos enviado un correo con los detalles. Nos vemos pronto en Casa Loma.
         </p>
-        <a href="/" className="text-blue-600 underline">Volver al inicio</a>
+        <Link href="/" className="text-blue-600 underline">
+  Volver al inicio
+</Link>
       </div>
     );
   }

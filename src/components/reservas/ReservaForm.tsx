@@ -5,10 +5,17 @@ import SelectorHabitacion from "./SelectorHabitacion";
 import Resumen from "./Resumen";
 import Confirmacion from "./Confirmacion";
 
+interface Habitacion {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  precio: number;
+}
+
 export default function ReservaForm() {
   const [fechaEntrada, setFechaEntrada] = useState<Date | null>(null);
   const [fechaSalida, setFechaSalida] = useState<Date | null>(null);
-  const [habitaciones] = useState<any[]>([
+  const [habitaciones] = useState<Habitacion[]>([
     {
       id: 1,
       nombre: "Suite Colonial",
@@ -22,7 +29,7 @@ export default function ReservaForm() {
       precio: 180000,
     },
   ]);
-  const [seleccionada, setSeleccionada] = useState<any | null>(null);
+  const [seleccionada, setSeleccionada] = useState<Habitacion | null>(null);
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [confirmado, setConfirmado] = useState(false);
@@ -59,7 +66,13 @@ export default function ReservaForm() {
         Reserva tu experiencia en Casa Loma
       </h2>
 
-      <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} className="space-y-8">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+        className="space-y-8"
+      >
         <SelectorFechas
           fechaEntrada={fechaEntrada}
           fechaSalida={fechaSalida}

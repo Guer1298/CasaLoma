@@ -31,18 +31,16 @@ model Cliente {
 }
 
 model Reserva {
-  id           Int        @id @default(autoincrement())
-  clienteId    Int
-  habitacionId Int
-  fechaEntrada DateTime
-  fechaSalida  DateTime
-  estado       String     @default("pendiente")
-  monto        Int?
-  createdAt    DateTime   @default(now())
-
-  cliente      Cliente    @relation(fields: [clienteId], references: [id])
-  habitacion   Habitacion @relation(fields: [habitacionId], references: [id])
+  id           Int      @id @default(autoincrement())
+  clienteNombre String
+  clienteEmail  String
+  fechaEntrada  DateTime
+  fechaSalida   DateTime
+  habitacionId  Int
+  habitacion    Habitacion @relation(fields: [habitacionId], references: [id])
+  createdAt     DateTime   @default(now())
 }
+
 
 model Usuario {
   id       Int     @id @default(autoincrement())
